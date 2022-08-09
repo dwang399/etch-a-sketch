@@ -2,12 +2,10 @@
     width: 500px;
     height: 500px;
     display: inline-grid;
-    flex-wrap: wrap;
     column-gap: 2px;
     row-gap: 2px;
     background: #eee;
     vertical-align: top;
-
     margin: 0 10px 10px 0;
   }
 

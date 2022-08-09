@@ -3,27 +3,38 @@
     <head>
         <meta charset="utf-8">
         <title>Etch a Sketch</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <button onclick="grid()">Create an Etch-a-Sketch!</button>
+        <button onclick="refresh()">Clear Grid</button>
         <div id="container"></div>
         <script>
             
 
             const container = document.querySelector('#container');
-            
+           
             function grid() {
-                for (let i = 1; i <= 16; i++) {
+                
+                let userEntry = prompt("How many squares per side would you like?")
+                container.style.gridTemplateColumns = `repeat(${userEntry} , 1fr)`;
+                container.style.gridTemplateRows = `repeat(${userEntry} , 1fr)`;
+                for (let i = 1; i <= (userEntry*userEntry); i++) {
                     var newDiv = document.createElement('div');
                     newDiv.classList.add('content');
+                   
                     newDiv.addEventListener("mouseover", (event) => {
                         event.target.style.backgroundColor = "black";
                     });
+                    newDiv.style.width = (500/userEntry) + "px"; 
+                    newDiv.style.height = (500/userEntry) + "px";
                     container.appendChild(newDiv);
                 }
                 return;
             }
-            
+            function refresh() {
+                window.location.reload();
+            }
 
         </script>
     </body>
